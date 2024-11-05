@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вікторина: Основи Менеджменту та SWOT-Аналіз</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f8ff; }
+        .quiz-container { max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #ffffff; }
+        .question { font-size: 18px; margin-bottom: 20px; }
+        .options { list-style-type: none; padding: 0; }
+        .options li { margin: 10px 0; }
+        button { font-size: 16px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { font-size: 20px; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Вікторина: Основи Менеджменту та SWOT-Аналіз</h1>
+        <div class="question-container">
+            <div class="question">Яке завдання основного менеджменту?</div>
+            <ul class="options">
+                <li><input type="radio" name="q1" value="0"> Управління лише фінансами</li>
+                <li><input type="radio" name="q1" value="1"> Планування, організація, мотивація, контроль</li>
+                <li><input type="radio" name="q1" value="0"> Контроль за персоналом</li>
+            </ul>
+            <div class="question">Що означає SWOT у SWOT-аналізі?</div>
+            <ul class="options">
+                <li><input type="radio" name="q2" value="0"> Сильні та слабкі сторони компанії</li>
+                <li><input type="radio" name="q2" value="1"> Сильні та слабкі сторони, можливості, загрози</li>
+                <li><input type="radio" name="q2" value="0"> Систематичне вивчення технологій</li>
+            </ul>
+            <button onclick="submitQuiz()">Завершити тест</button>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const answers = document.querySelectorAll('input[type="radio"]:checked');
+            if (answers.length < 2) {
+                document.getElementById('result').innerText = "Відповіді на всі питання!";
+                return;
+            }
+            let score = 0;
+            answers.forEach(answer => score += parseInt(answer.value));
+            document.getElementById('result').innerText = `Ваш результат: ${score} з 2`;
+        }
+    </script>
+</body>
+</html>
